@@ -1,7 +1,8 @@
 from ovos_plugin_manager.templates.ocp import OCPStreamExtractor
 from ovos_utils.log import LOG
 import deezeridu
-from ovos_plugin_manager.utils import classproperty
+import os
+from tempfile import gettempdir
 
 
 class OCPDeezerExtractor(OCPStreamExtractor):
@@ -11,7 +12,7 @@ class OCPDeezerExtractor(OCPStreamExtractor):
         self.deezer = deezer or deezeridu.Deezer()
         self.settings = self.ocp_settings.get("deezer", {})
 
-    @classproperty
+    @property
     def supported_seis(self):
         """
         skills may return results requesting a specific extractor to be used
@@ -27,10 +28,10 @@ class OCPDeezerExtractor(OCPStreamExtractor):
         return any([uri.startswith(sei) for sei in self.supported_seis]) or \
                self.is_deezer(uri)
 
-    def extract_stream(self, uri):
+    def extract_stream(self, url, video=True):
         """ return the real uri that can be played by OCP """
-        path = self.settings.get("path") or join(gettempdir(), "deezer")
-        makedirs(path, exist_ok=True)
+        path = self.settings.get("path") or os.path.join(gettempdir(), "deezer")
+        os.makedirs(path, exist_ok=True)
         try:
             t = self.deezer.download(url, output_dir=path, recursive_quality=True)
             track_info = t.track_info
