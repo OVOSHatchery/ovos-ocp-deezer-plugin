@@ -1,7 +1,7 @@
-import requests
 from ovos_plugin_manager.templates.ocp import OCPStreamExtractor
 from ovos_utils.log import LOG
 import deezeridu
+from ovos_plugin_manager.utils import classproperty
 
 
 class OCPDeezerExtractor(OCPStreamExtractor):
@@ -11,7 +11,7 @@ class OCPDeezerExtractor(OCPStreamExtractor):
         self.deezer = deezer or deezeridu.Deezer()
         self.settings = self.ocp_settings.get("deezer", {})
 
-    @property
+    @classproperty
     def supported_seis(self):
         """
         skills may return results requesting a specific extractor to be used
