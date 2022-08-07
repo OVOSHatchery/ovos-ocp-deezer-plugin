@@ -6,8 +6,8 @@ import deezeridu
 
 class OCPDeezerExtractor(OCPStreamExtractor):
 
-    def __init__(self, deezer=None):
-        super().__init__()
+    def __init__(self, ocp_settings=None, deezer=None):
+        super().__init__(ocp_settings)
         self.deezer = deezer or deezeridu.Deezer()
 
     @property
