@@ -9,6 +9,7 @@ class OCPDeezerExtractor(OCPStreamExtractor):
     def __init__(self, ocp_settings=None, deezer=None):
         super().__init__(ocp_settings)
         self.deezer = deezer or deezeridu.Deezer()
+        self.settings = self.ocp_settings.get("deezer", {})
 
     @property
     def supported_seis(self):
@@ -28,16 +29,7 @@ class OCPDeezerExtractor(OCPStreamExtractor):
 
     def extract_stream(self, uri):
         """ return the real uri that can be played by OCP """
-        return self.get_deezer_audio_stream(uri)
-
-    @staticmethod
-    def is_deezer(url):
-        if not url:
-            return False
-        return "deezer." in url
-
-    def get_deezer_audio_stream(self, url, path=None):
-        path = path or join(gettempdir(), "deezer")
+        path = self.settings.get("path") or join(gettempdir(), "deezer")
         makedirs(path, exist_ok=True)
         try:
             t = self.deezer.download(url, output_dir=path, recursive_quality=True)
@@ -49,5 +41,10 @@ class OCPDeezerExtractor(OCPStreamExtractor):
             LOG.error(e)
             return {}
 
+    @staticmethod
+    def is_deezer(url):
+        if not url:
+            return False
+        return "deezer." in url
 
 
