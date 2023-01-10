@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 
 BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
@@ -68,9 +68,8 @@ setup(
     author='JarbasAi',
     author_email='jarbasai@mailfence.com',
     license='Apache-2.0',
-    packages=[PLUGIN_PKG],
+    packages=find_packages(include=[f'{PLUGIN_PKG}*']),
     install_requires=required("requirements.txt"),
-    package_data={'': package_files(PLUGIN_PKG)},
     zip_safe=True,
     include_package_data=True,
     keywords='ovos ocp plugin',
