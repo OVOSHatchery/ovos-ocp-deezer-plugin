@@ -1,0 +1,6 @@
+[ovos.ocp.extractor]
+ovos-ocp-deezer-plugin = ovos_ocp_deezer_plugin:OCPDeezerExtractor
+
+[ovos.ocp.extractor.config]
+ovos-ocp-deezer-plugin.config = ovos_ocp_deezer_plugin:OCPDeezerExtractorConfig
+
