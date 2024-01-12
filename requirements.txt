@@ -1,2 +1,2 @@
-ovos_plugin_common_play
+ovos-plugin-manager
 deezeridu
