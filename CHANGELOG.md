@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/compare/11d6df779bffb86c5fda937a031cc9537e73819d...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/compare/V0.0.1...HEAD)
+
+**Merged pull requests:**
+
+- fix/dependencies [\#2](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/pull/2) ([NeonJarbas](https://github.com/NeonJarbas))
+
+## [V0.0.1](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/tree/V0.0.1) (2023-01-26)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-ocp-deezer-plugin/compare/11d6df779bffb86c5fda937a031cc9537e73819d...V0.0.1)
 
 **Merged pull requests:**
 
